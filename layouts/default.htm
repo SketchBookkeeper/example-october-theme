@@ -14,8 +14,12 @@ description = "Default layout"
         {% partial 'header' %}
     </header>
 
-    <main id="layout-content" class="medium-wrapper xs-mx-auto xs-p1">
+    <main id="main-content" class="medium-wrapper xs-mx-auto xs-p1">
         {% page %}
     </main>
+
+    <footer>
+        {% partial 'footer' %}
+    </footer>
 </body>
 </html>

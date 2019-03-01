@@ -1,0 +1,48 @@
+title = "Movie Single"
+url = "/movie/:slug"
+layout = "default"
+is_hidden = 0
+
+[builderDetails]
+modelClass = "PaulAllen\Movies\Models\Movie"
+identifierValue = "{{ :slug }}"
+modelKeyColumn = "slug"
+displayColumn = "name"
+notFoundMessage = "Record not found"
+==
+{% set record = builderDetails.record %}
+{% set displayColumn = builderDetails.displayColumn %}
+{% set notFoundMessage = builderDetails.notFoundMessage %}
+
+{% if record %}
+
+    <div class="clearfix xs-mt3">
+        <h1 class="xs-mb1">{{ record.name }}</h1>
+
+        {% if record.year %}
+            <p>{{ record.year }}</p>
+        {% endif %}
+
+        {% if record.poster %}
+            <img src="{{ record.poster.thumb(500, auto) }}" alt="{{ record.poster.file_name }}">
+        {% endif %}
+
+        <div class="wysiwyg xs-mt2 xs-mb5">
+            {{ html_clean(record.description) }}
+        </div>
+
+        {% if record.movie_gallery %}
+            <h2 class="xs-mb1">Gallery</h2>
+
+            <div class="xs-block-grid-2 md-block-grid-3 xs-mb5">
+                {% for image in record.movie_gallery %}
+                    <div class="block-grid__item">
+                        <img src="{{ image.thumb(400, 400, {'mode':'crop'}) }}" alt="{{ image.file_name }}">
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+{% else %}
+    {{ notFoundMessage }}
+{% endif %}
