@@ -19,6 +19,16 @@ notFoundMessage = "Record not found"
     <div class="clearfix xs-mt3">
         <h1 class="xs-mb1">{{ record.name }}</h1>
 
+        {% if record.genres %}
+            <div class="clearfix">
+                {% for genre in record.genres %}
+                    <div class="tag">
+                        <span class="tag__text">{{ genre.genre_title }}</span>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
         {% if record.year %}
             <p>{{ record.year }}</p>
         {% endif %}
