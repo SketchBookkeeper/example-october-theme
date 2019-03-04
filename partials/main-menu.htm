@@ -1,0 +1,5 @@
+<ul id="main-menu" class="main-menu list-unstyled">
+    {% for item in items %}
+        {% partial 'menu-item' item=item depth=0 %}
+    {% endfor %}
+</ul>

@@ -1,15 +1,12 @@
+[viewBag]
+
+[staticMenu]
+code = "main-menu"
+==
 <div class="xs-border-bottom fill-gray-darker">
     <nav class="xs-mx-auto medium-wrapper clearfix xs-p2">
-        <ul class="list-unstyled xs-flex xs-text-2">
-            <li class="xs-pr2">
-                <a href="{{ 'home'|page }}" class="{% if this.page.id == 'home' %} text-pink {% endif %}">Home</a>
-            </li>
-            <li class="xs-pr2">
-                <a href="{{ 'blog'|page }}" class="{% if this.page.id == 'blog' %} text-pink {% endif %}">Blog</a>
-            </li>
-            <li class="xs-pr2">
-                <a href="{{ 'movies'|page }}" class="{% if this.page.id == 'movies' %} text-pink {% endif %}">Movies</a>
-            </li>
-        </ul>
+        {% if staticMenu.menuItems %}
+            {% partial "main-menu" items=staticMenu.menuItems %}
+        {% endif %}
     </nav>
 </div>

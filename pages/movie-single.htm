@@ -23,7 +23,7 @@ notFoundMessage = "Record not found"
             <div class="clearfix">
                 {% for genre in record.genres %}
                     <div class="tag">
-                        <span class="tag__text">{{ genre.genre_title }}</span>
+                        <a href="/genres/{{ genre.slug }}" class="tag__text">{{ genre.genre_title }}</a>
                     </div>
                 {% endfor %}
             </div>

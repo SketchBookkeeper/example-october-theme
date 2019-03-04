@@ -1,0 +1,15 @@
+<li class="menu-item">
+    {% set depth = depth + 1 %}
+
+    {% if item.items %}
+        <button class="menu-item__button" type="button">{{ item.title }}</button>
+
+        <ul class="menu-item__sub-menu children-{{ item.items|length }} list-unstyled" data-depth="{{ depth }}">
+            {% for subItem in item.items %}
+                {% partial 'menu-item' item=subItem depth=depth %}
+            {% endfor %}
+        </ul>
+    {% else %}
+        <a href="{{ item.url }}" class="menu-item__link">{{ item.title }}</a>
+    {% endif %}
+</li>

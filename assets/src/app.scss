@@ -1,23 +1,5 @@
 /* Custom Styles */
 
 @import '../../node_modules/bf-solid/_lib/solid.scss';
-
-img {
-    display: block;
-}
-
-.large-wrapper {
-    max-width: 1200px;
-}
-
-.medium-wrapper {
-    max-width: 1000px;
-}
-
-#main-content {
-    min-height: 100vh;
-}
-
-.wysiwyg {
-
-}
+@import 'partials/global';
+@import 'partials/main-menu';
