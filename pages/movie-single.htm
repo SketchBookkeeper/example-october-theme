@@ -41,6 +41,19 @@ notFoundMessage = "Record not found"
             {{ html_clean(record.description) }}
         </div>
 
+        {% if record.actors %}
+            <h2>Actors</h2>
+
+            <ul class="xs-mb4">
+                {% for actor in record.actors %}
+                    <li>
+                        {{ actor.actor_name }}
+                        <span class="italic">{{ actor.actor_age }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
         {% if record.movie_gallery %}
             <h2 class="xs-mb1">Gallery</h2>
 
