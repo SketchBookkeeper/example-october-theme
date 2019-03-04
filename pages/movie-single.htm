@@ -41,14 +41,15 @@ notFoundMessage = "Record not found"
             {{ html_clean(record.description) }}
         </div>
 
-        {% if record.actors %}
-            <h2>Actors</h2>
+        {% if record.themes %}
+            <h2>Themes</h2>
 
             <ul class="xs-mb4">
-                {% for actor in record.actors %}
+                {% for theme in record.themes %}
                     <li>
-                        {{ actor.actor_name }}
-                        <span class="italic">{{ actor.actor_age }}</span>
+                        <p style="color: {{ theme.theme_color }};">
+                            {{ theme.theme_name }}
+                        </p>
                     </li>
                 {% endfor %}
             </ul>
