@@ -1,5 +1,5 @@
 /**
- * Attach jQuery to the window
+ * App.js
  */
 
-window.$ = window.jQuery = require("jquery");
+import './form-validation';
