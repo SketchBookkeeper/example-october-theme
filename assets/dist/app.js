@@ -95,8 +95,8 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _form_validation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./form-validation */ "./assets/src/form-validation.js");
-/* harmony import */ var _form_validation__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_form_validation__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _form_helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./form-helpers */ "./assets/src/form-helpers.js");
+/* harmony import */ var _form_helpers__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_form_helpers__WEBPACK_IMPORTED_MODULE_0__);
 /**
  * App.js
  */
@@ -115,15 +115,15 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./assets/src/form-validation.js":
-/*!***************************************!*\
-  !*** ./assets/src/form-validation.js ***!
-  \***************************************/
+/***/ "./assets/src/form-helpers.js":
+/*!************************************!*\
+  !*** ./assets/src/form-helpers.js ***!
+  \************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
 /**
- * Form Validation
+ * Form Helpers
  */
 
 /***/ }),

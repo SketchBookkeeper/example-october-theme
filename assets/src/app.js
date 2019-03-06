@@ -2,4 +2,4 @@
  * App.js
  */
 
-import './form-validation';
+import './form-helpers';
