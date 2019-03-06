@@ -14,8 +14,11 @@ const mix = require('laravel-mix');
 
 mix.js('assets/src/app.js', 'dist')
    .sass('assets/src/app.scss', 'dist')
-   .browserSync('october.test')
-   .setPublicPath('assets');
+   .setPublicPath('assets')
+   .autoload({
+        $: "jquery",
+        jQuery: "jquery"
+   });
 
 // mix.js('src/app.js', 'dist/').sass('src/app.scss', 'dist/');
 
