@@ -4,5 +4,11 @@ layout = "default"
 is_hidden = 0
 
 [actorform]
+
+[session]
+security = "user"
+allowedUserGroups[] = "registered"
+redirect = "home"
 ==
+{% component 'session' %}
 {% component 'actorform' %}

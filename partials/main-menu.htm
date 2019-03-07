@@ -2,4 +2,14 @@
     {% for item in items %}
         {% partial 'menu-item' item=item depth=0 %}
     {% endfor %}
+
+    <li class="menu-item">
+        {% if user %}
+            <button data-request="onLogout" data-request-data="redirect: '/'" class="menu-item__link">
+                Sign out
+            </button>
+        {% else %}
+            <a href="{{ 'login'|page }}" class="menu-item__link">Login</a>
+        {% endif %}
+    </li>
 </ul>
