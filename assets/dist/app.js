@@ -125,6 +125,24 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * Form Helpers
  */
+$('.js-add-actor-form').on('submit', function (e) {
+  var _this = this;
+
+  e.preventDefault();
+  $(this).request('onSaveActor', {
+    success: function success(data) {
+      $.oc.flashMsg({
+        text: data.message,
+        class: data.type
+      });
+
+      if (data.type === 'success') {
+        $(_this).find(':input').val('');
+      }
+    },
+    flash: true
+  });
+});
 
 /***/ }),
 

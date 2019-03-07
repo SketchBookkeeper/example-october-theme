@@ -16,7 +16,8 @@ mix.js('assets/src/app.js', 'dist')
    .sass('assets/src/app.scss', 'dist')
    .setPublicPath('assets')
    .autoload({
-        jquery: ['$', 'window.jQuery', 'jQuery']
+        $: 'jquery',
+        jQuery: 'jquery'
    });
 
 // mix.js('src/app.js', 'dist/').sass('src/app.scss', 'dist/');
