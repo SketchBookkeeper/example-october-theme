@@ -18,6 +18,12 @@ mix.js('assets/src/app.js', 'dist')
    .autoload({
         $: 'jquery',
         jQuery: 'jquery'
+   })
+   .browserSync({
+       proxy: 'october.test',
+       host: 'localhost',
+       files: ['**/*.js', '**/*.css', '**/*.htm', '!/**/node_modules/*'],
+       injectChanges: true,
    });
 
 // mix.js('src/app.js', 'dist/').sass('src/app.scss', 'dist/');

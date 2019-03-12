@@ -12,8 +12,17 @@ $('.js-add-actor-form').on('submit', function(e) {
             if (data.type === 'success') {
                 $(this).find(':input').val('');
             }
+
         },
         flash: true,
     });
-})
+});
 
+$('.js-contact-form').on('ajaxSuccess', function(e, context, data, status, jqXHR) {
+    // On Successful validation, remove contact form.
+    if (data.status === 'message sent') {
+        const $inputs = $(this).find(':input');
+        $inputs.val('');
+        this.remove();
+    }
+});
