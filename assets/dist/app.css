@@ -6881,3 +6881,23 @@ img {
   color: #68af15;
 }
 
+.pagination .active a {
+  color: #e40c78;
+}
+
+.ss-search-form {
+  position: relative;
+}
+
+.ss-search-form__results {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  padding: 10px 7px 5px;
+  background-color: #fff;
+}
+
+.ss-search-form__results:empty {
+  display: none;
+}
+

@@ -2,6 +2,15 @@ description = "Default layout"
 
 [session]
 security = "all"
+
+[staticMenu]
+code = "main-menu"
+
+[searchInput]
+useAutoComplete = 1
+autoCompleteResultCount = 5
+showProviderBadge = 1
+searchPage = "search-results.htm"
 ==
 {% component 'session' %}
 
@@ -16,7 +25,19 @@ security = "all"
 </head>
 <body class="fill-gray-lighter">
     <header>
-        {% partial 'header' %}
+        <div class="xs-border-bottom fill-gray-darker">
+            <div class="medium-wrapper xs-mx-auto">
+                <div class="xs-flex xs-flex-justify-space-between xs-flex-align-center">
+                    <nav class="clearfix xs-p2">
+                        {% if staticMenu.menuItems %}
+                            {% partial "main-menu" items=staticMenu.menuItems %}
+                        {% endif %}
+                    </nav>
+
+                    {% component 'searchInput' %}
+                </div>
+            </div>
+        </div>
     </header>
 
     <main id="main-content" class="medium-wrapper xs-mx-auto xs-p1">

@@ -1,0 +1,15 @@
+.ss-search-form {
+    position: relative;
+
+    &__results {
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        padding: 10px 7px 5px;
+        background-color: $fill-white;
+
+        &:empty {
+            display: none;
+        }
+    }
+}
