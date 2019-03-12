@@ -6881,6 +6881,11 @@ img {
   color: #68af15;
 }
 
+.pagination {
+  list-style: none;
+}
+
+.pagination .active span,
 .pagination .active a {
   color: #e40c78;
 }

@@ -3,41 +3,24 @@ url = "/movies/:page?"
 layout = "default"
 is_hidden = 0
 
-[builderList]
-modelClass = "PaulAllen\Movies\Models\Movie"
-scope = "-"
-scopeValue = "{{ :scope }}"
-displayColumn = "name"
-noRecordsMessage = "No records found"
-detailsPage = "movie-single"
-detailsKeyColumn = "slug"
-detailsUrlParameter = "slug"
-recordsPerPage = 10
-pageNumber = "{{ :page }}"
 ==
-{% set records = builderList.records %}
-{% set displayColumn = builderList.displayColumn %}
-{% set noRecordsMessage = builderList.noRecordsMessage %}
-{% set detailsPage = builderList.detailsPage %}
-{% set detailsKeyColumn = builderList.detailsKeyColumn %}
-{% set detailsUrlParameter = builderList.detailsUrlParameter %}
+<?php
+    // PHP Block
+    use PaulAllen\Movies\Models\Movie;
 
-{% partial 'movie-list' records=records %}
+    // Required function to process data
+    // before page is rendered.
+    function onStart() {
+        $this['movies'] = Movie::orderBy('year', 'desc')->paginate(10);
+    }
 
-{% if records.lastPage > 1 %}
-    <ul class="list-unstyled xs-flex xs-pl3 xs-pr3 pagination">
-        {% if records.currentPage > 1 %}
-            <li class="xs-mr1"><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage-1) }) }}">&larr; Prev</a></li>
-        {% endif %}
+?>
+==
 
-        {% for page in 1..records.lastPage %}
-            <li class="{{ records.currentPage == page ? 'active' : null }} xs-mr1">
-                <a href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
-            </li>
-        {% endfor %}
+{# movies is being called from $this['movies'] #}
+{% partial 'movie-list' records=movies %}
 
-        {% if records.lastPage > records.currentPage %}
-            <li class="xs-mr1"><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage+1) }) }}">Next &rarr;</a></li>
-        {% endif %}
-    </ul>
-{% endif %}
+<div>
+    {# https://octobercms.com/docs/services/pagination#displaying-results-in-a-view #}
+    {{ movies.render|raw }}
+</div>

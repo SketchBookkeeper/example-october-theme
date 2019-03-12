@@ -1,5 +1,8 @@
 .pagination {
+    list-style: none;
+
     .active {
+        span,
         a {
             color: $text-pink;
         }
