@@ -125,6 +125,10 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * Form Helpers
  */
+
+/**
+ * Actor Form
+ */
 $('.js-add-actor-form').on('submit', function (e) {
   var _this = this;
 
@@ -143,6 +147,10 @@ $('.js-add-actor-form').on('submit', function (e) {
     flash: true
   });
 });
+/**
+ * Contact Form
+ */
+
 $('.js-contact-form').on('ajaxSuccess', function (e, context, data, status, jqXHR) {
   // On Successful validation, remove contact form.
   if (data.status === 'message sent') {
@@ -150,6 +158,25 @@ $('.js-contact-form').on('ajaxSuccess', function (e, context, data, status, jqXH
     $inputs.val('');
     this.remove();
   }
+});
+/**
+ * Movie Filter
+ */
+
+var $form = $('#movie-filter');
+var $pageInput = $('#page-number');
+var $filterSubmit = $('#filter-submit');
+document.addEventListener('click', function (e) {
+  if (e.target.closest('[data-page]')) {
+    $pageInput.val(e.target.closest('[data-page]').getAttribute('data-page'));
+    $form.submit();
+  }
+}); // Reset page when a new filter is applied.
+
+$filterSubmit.on('click', function (e) {
+  e.preventDefault();
+  $pageInput.val(1);
+  $form.submit();
 });
 
 /***/ }),
