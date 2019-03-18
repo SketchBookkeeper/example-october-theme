@@ -14,6 +14,7 @@ $('.js-add-actor-form').on('submit', function(e) {
 
             if (data.type === 'success') {
                 $(this).find(':input').val('');
+                $('#image-result').html('');
             }
 
         },
@@ -35,6 +36,7 @@ $('.js-contact-form').on('ajaxSuccess', function(e, context, data, status, jqXHR
 
 /**
  * Movie Filter
+ * @TODO, this should be called by component, not theme.
  */
 const $form = $('#movie-filter');
 const $pageInput = $('#page-number');

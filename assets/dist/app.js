@@ -142,6 +142,7 @@ $('.js-add-actor-form').on('submit', function (e) {
 
       if (data.type === 'success') {
         $(_this).find(':input').val('');
+        $('#image-result').html('');
       }
     },
     flash: true
@@ -161,6 +162,7 @@ $('.js-contact-form').on('ajaxSuccess', function (e, context, data, status, jqXH
 });
 /**
  * Movie Filter
+ * @TODO, this should be called by component, not theme.
  */
 
 var $form = $('#movie-filter');
